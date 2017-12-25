@@ -14,7 +14,7 @@ gulp.task('js', () =>
 );
 
 gulp.task('vendorjs', () => {
-  gulp.src('node_modules/lodash/dist/lodash.min.js').pipe(gulp.dest('build/js'));
+  gulp.src('node_modules/underscore/underscore-min.js').pipe(gulp.dest('build/js'));
 });
 
 gulp.task('default', ['html', 'css', 'js', 'vendorjs']);
