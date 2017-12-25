@@ -1,19 +1,21 @@
-import {BaseHandler} from "./wsc-chrome.min.js";
+import WSC from "./wsc-chrome.min.js";
+const BaseHandler = WSC.BaseHandler
 
 const methods = ["get", "post", "delete", "put"];
 
-function WSCHandler(routes) {
+function WSCHandler(routes, request) {
   this.routes = routes;
+  this.request = request;
 
-  BaseHandler.prototype.constructor.call(this);
+  BaseHandler.prototype.constructor.call(this, request);
 }
 
 Object.assign(WSCHandler.prototype, BaseHandler.prototype);
 
-function findMatchingCallback(routeArr, string) {
-  for(let i = 0; i < routeArr; i++) {
+function findMatchingCallback(routeArr, uri) {
+  for(let i = 0; i < routeArr.length; i++) {
     let regex = new RegExp(routeArr[i].route);
-    if(regex.exec()) {
+    if(regex.exec(uri)) {
       return routeArr[i].callback;
     }
   }
