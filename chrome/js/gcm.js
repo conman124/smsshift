@@ -13,8 +13,4 @@ function registerGCM() {
   chrome.gcm.register([sender], onGCMRegistered);
 }
 
-function sendGCM(message) {
-
-}
-
-export {registerGCM, sendGCM};
+export {registerGCM};
