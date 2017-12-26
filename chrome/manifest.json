@@ -1,6 +1,8 @@
 {
   "app": {
-    "background": { }
+    "background": {
+      "page": "html/background.html"
+    }
   },
   "manifest_version": 2,
   "name": "SMSShift",
