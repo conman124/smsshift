@@ -1,3 +1,5 @@
+const sender = "395460313717";
+
 function onGCMRegistered(registrationID) {
   if(!registrationID) {
     console.error(chrome.runtime.lastError.message);
@@ -8,9 +10,8 @@ function onGCMRegistered(registrationID) {
 }
 
 function registerGCM() {
-  let sender = ["395460313717"];
+  chrome.gcm.register([sender], onGCMRegistered);
 
-  chrome.gcm.register(sender, onGCMRegistered);
 }
 
 export default registerGCM;
