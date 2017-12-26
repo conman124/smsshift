@@ -1,4 +1,6 @@
-const sender = "395460313717";
+const senderPromise = fetch("../config.json")
+  .then(resp => resp.json())
+  .then(json => json.senderID);
 
 function onGCMRegistered(registrationID) {
   if(!registrationID) {
@@ -10,7 +12,9 @@ function onGCMRegistered(registrationID) {
 }
 
 function registerGCM() {
-  chrome.gcm.register([sender], onGCMRegistered);
+  senderPromise.then((sender) => {
+    chrome.gcm.register([sender], onGCMRegistered);
+  });
 }
 
 export {registerGCM};
