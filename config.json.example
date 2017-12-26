@@ -1,3 +1,7 @@
 {
-	"senderID": "firebase cloud messaging sender key"
+	"senderID": "firebase cloud messaging sender key",
+	"firebase": {
+		"put firebase config (keys)": "here",
+		"it won't be put": "into the chrome app files"
+	}
 }
