@@ -8,7 +8,7 @@ function onGCMRegistered(registrationID) {
 }
 
 function registerGCM() {
-  let sender = [chrome.runtime.getManifest().senderID];
+  let sender = ["395460313717"];
 
   chrome.gcm.register(sender, onGCMRegistered);
 }
