@@ -9,6 +9,6 @@
   "author": "Connor Hewitt",
   "license": "MIT",
   "dependencies": {
-    "firebase": "^4.8.1"
+    "firebase-admin": "^5.6.0"
   }
 }
