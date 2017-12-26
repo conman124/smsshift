@@ -7,7 +7,7 @@
   "version": "0.2",
   "version_name": "0.2",
   "minimum_chrome_version": "61",
-  "permissions": ["notifications", "system.network"],
+  "permissions": ["gcm", "notifications", "system.network"],
   "sockets": {
     "udp": {
       "send": [""],
