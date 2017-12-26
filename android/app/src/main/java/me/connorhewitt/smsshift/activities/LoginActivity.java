@@ -1,7 +1,9 @@
-package me.connorhewitt.smsshift;
+package me.connorhewitt.smsshift.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import me.connorhewitt.smsshift.R;
 
 public class LoginActivity extends Activity {
 

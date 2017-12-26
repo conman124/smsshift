@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "395460313717",
+    "firebase_url": "https://smsshift.firebaseio.com",
+    "project_id": "smsshift",
+    "storage_bucket": "smsshift.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395460313717:android:12e8efd747f69c40",
+        "android_client_info": {
+          "package_name": "me.connorhewitt.smsshift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395460313717-uvrv58bphbj5t6etav6emuiumb5qvsoa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.connorhewitt.smsshift",
+            "certificate_hash": "4f5480db074f44cf764425de7390b0568f2e8189"
+          }
+        },
+        {
+          "client_id": "395460313717-ho649binbapdkbbg2unfd1oescikl6er.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATCsuev9PW53NqJ7AB69zJMD79QbZtu6E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395460313717-ho649binbapdkbbg2unfd1oescikl6er.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
