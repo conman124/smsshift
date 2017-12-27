@@ -1,21 +1,31 @@
 let firebase = require('firebase-admin');
-let config = require('../config');
-let firebaseConfig = require('../firebase.json');
+let config = require('../config.json');
+let firebaseConfig = config.firebase;
+let xmpp = require('node-xmpp-client');
 
-firebase.initializeApp({
+/*firebase.initializeApp({
   credential: firebase.credential.cert(firebaseConfig)
 });
 
-let registrationID = process.argv[2];
-let message = process.argv[3];
+firebase.messaging().*/
 
-firebase.messaging().sendToDevice(registrationID, {
-  data: {
-    message
-  }
-}).then((response) => {
-  console.log("Successfully sent message:", response);
-  firebase.apps[0].delete();
-}).catch((error) => {
-  console.error("Error sending:", error);
+let client = new xmpp.Client({
+  jid: config.senderID + "@gcm.googleapis.com",
+  port: 5235,
+  password: config.fcm_private_server_key,
+  host: "fcm-xmpp.googleapis.com",
+  legacySSL: true,
+  reconnect: true
+});
+
+client.on('online', () => {
+  console.log("Online!");
+});
+
+client.on('stanza', () => {
+  console.log("Stanza!");
+});
+
+client.on('close', () => {
+  console.log("Close!");
 });

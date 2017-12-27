@@ -9,6 +9,7 @@
   "author": "Connor Hewitt",
   "license": "MIT",
   "dependencies": {
-    "firebase-admin": "^5.6.0"
+    "firebase-admin": "^5.6.0",
+    "node-xmpp-client": "^3.2.0"
   }
 }

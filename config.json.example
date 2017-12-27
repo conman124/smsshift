@@ -1,5 +1,8 @@
 {
 	"senderID": "firebase cloud messaging sender key",
+	"phoneReg": "the registration token for firebase on the phone",
+	"otherReg": ["other registration tokens", "which can send messages"],
+	"fcm_private_server_key": "the private firebase cloud messaging key",
 	"firebase": {
 		"put firebase config (keys)": "here",
 		"it won't be put": "into the chrome app files"
