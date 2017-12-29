@@ -8,16 +8,34 @@ firebase.initializeApp({
 })
 
 xmpp((message) => {
-  getRegistrationIDsToForwardTo(message.from)
-    .then((ids) =>
-      firebase.messaging().sendToDevice(ids, {
-        data: {
-          type: "received",
-          event: message.data.event
-        }
-      })
-    )
-    .catch(console.error);
+  switch(message.data.type) {
+    case "received":
+      getRegistrationIDsToForwardTo(message.from)
+        .then((ids) =>
+          firebase.messaging().sendToDevice(ids, {
+            data: {
+              type: "received",
+              event: message.data.event
+            }
+          })
+        )
+        .catch(console.error);
+      break;
+    case "send":
+      getPhoneRegistrationID(message.from)
+        .then((phoneID) =>
+          firebase.messaging().sendToDevice(phoneID, {
+            data: {
+              type: "send",
+              event: message.data.event
+            }
+          })
+        )
+        .catch(console.error);
+      break;
+    default:
+      console.error("Received unexpected event type:", message.data.type);
+  }
 });
 
 function getRegistrationIDsToForwardTo(from) {
@@ -27,26 +45,9 @@ function getRegistrationIDsToForwardTo(from) {
   return Promise.resolve(config.otherReg);
 }
 
-let readline = require('readline');
-
-let rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-rl.on("pause", rl.close);
-
-rl.on("line", (input) => {
-  let destinationNumber = input.substr(0, input.indexOf(' '));
-  let message = input.substr(input.indexOf(' ')+1);
-
-  firebase.messaging().sendToDevice(config.phoneReg, {
-    data: {
-      type: "send",
-      event: JSON.stringify({
-        to: destinationNumber,
-        message: message
-      })
-    }
-  }).catch(console.error);
-});
+function getPhoneRegistrationID(otherID) {
+  if(config.otherReg.indexOf(otherID) == -1) {
+    return Promise.reject("Invalid otherID!");
+  }
+  return Promise.resolve(config.phoneReg);
+}
