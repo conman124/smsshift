@@ -8,12 +8,16 @@ firebase.initializeApp({
 })
 
 xmpp((message) => {
-  console.log(JSON.stringify(message));
-
   getRegistrationIDsToForwardTo(message.from)
-    .then((ids) => {
-      console.log("Send to", ids);
-    });
+    .then((ids) =>
+      firebase.messaging().sendToDevice(ids, {
+        data: {
+          type: "received",
+          event: message.data.event
+        }
+      })
+    )
+    .catch(console.error);
 });
 
 function getRegistrationIDsToForwardTo(from) {

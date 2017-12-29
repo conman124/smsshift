@@ -34,7 +34,7 @@ public class SMSMessageReceiver extends BroadcastReceiver {
 		FirebaseMessaging.getInstance().send(
 			new RemoteMessage.Builder(sender + "@gcm.googleapis.com")
 				.setMessageId(ev.senderNumber + "_" + ev.timestamp)
-				.addData("event_type", "received")
+				.addData("type", "received")
 				.addData("event", new Gson().toJson(ev))
 			.build()
 		);
