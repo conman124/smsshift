@@ -26,3 +26,27 @@ function getRegistrationIDsToForwardTo(from) {
   }
   return Promise.resolve(config.otherReg);
 }
+
+let readline = require('readline');
+
+let rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.on("pause", rl.close);
+
+rl.on("line", (input) => {
+  let destinationNumber = input.substr(0, input.indexOf(' '));
+  let message = input.substr(input.indexOf(' ')+1);
+
+  firebase.messaging().sendToDevice(config.phoneReg, {
+    data: {
+      type: "send",
+      event: JSON.stringify({
+        to: destinationNumber,
+        message: message
+      })
+    }
+  }).catch(console.error);
+});
