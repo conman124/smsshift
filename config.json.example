@@ -1,3 +1,4 @@
+/* The two files config-private.json and config-public.json are merged to form this */
 {
 	"senderID": "firebase cloud messaging sender key",
 	"phoneReg": "the registration token for firebase on the phone",
