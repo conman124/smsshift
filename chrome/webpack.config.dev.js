@@ -14,6 +14,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        exclude: __dirname + '/node_modules',
         query: {
           presets: ['es2015']
         }
@@ -24,6 +25,10 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
       }
     ]
   },
@@ -33,9 +38,11 @@ module.exports = {
       chunks: ['background'],
       filename: '../html/background.html'
     }),
-    new CopyWebpackPlugin([{
-      from: 'manifest.json',
-      to: '../'
-    }])
+    new CopyWebpackPlugin([
+      {
+        from: 'manifest.json',
+        to: '../'
+      }
+    ])
   ]
 }

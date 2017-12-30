@@ -1,6 +1,4 @@
-const senderPromise = fetch("../config.json")
-  .then(resp => resp.json())
-  .then(json => json.senderID);
+const senderPromise = Promise.resolve().then(() => require('../../config-public.json')).then(config => config.senderID)
 
 function onGCMRegistered(registrationID) {
   if(!registrationID) {

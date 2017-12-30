@@ -1,5 +1,5 @@
 let xmpp = require('./xmpp');
-let config = require('../config.json');
+let config = require('../config.js');
 let firebaseConfig = config.firebase;
 let firebase = require('firebase-admin');
 
