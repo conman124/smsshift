@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 var jsonTransform = require('gulp-json-transform');
+var babel = require('gulp-babel');
 
 gulp.task('html', () =>
   gulp.src('html/**/*').pipe(gulp.dest('build/html'))
@@ -18,6 +19,9 @@ gulp.task('js', () =>
   gulp.src('js/**/*.js').pipe(gulp.dest('build/js'))
 );
 
+gulp.task('jsx', () =>
+  gulp.src('js/jsx/**/*.jsx').pipe(babel()).pipe(gulp.dest('build/js/jsx'))
+);
 
 const configWhitelist = ["senderID"];
 gulp.task('config', () =>
@@ -34,7 +38,7 @@ gulp.task('vendorjs', () => {
   gulp.src('node_modules/underscore/underscore-min.js').pipe(gulp.dest('build/js'));
 });
 
-gulp.task('default', ['html', 'css', 'manifest', 'js', 'config', 'vendorjs']);
+gulp.task('default', ['html', 'css', 'manifest', 'js', 'jsx', 'config', 'vendorjs']);
 
 gulp.task('clean', () =>
   gulp.src('build', {read: false}).pipe(clean())
