@@ -35,7 +35,11 @@ gulp.task('config', () =>
 );
 
 gulp.task('vendorjs', () => {
-  gulp.src('node_modules/underscore/underscore-min.js').pipe(gulp.dest('build/js'));
+  gulp.src([
+    'node_modules/underscore/underscore-min.js',
+    'node_modules/react/umd/react.development.js',
+    'node_modules/react-dom/umd/react-dom.development.js'
+  ]).pipe(gulp.dest('build/js'));
 });
 
 gulp.task('default', ['html', 'css', 'manifest', 'js', 'jsx', 'config', 'vendorjs']);
