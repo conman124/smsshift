@@ -15,7 +15,7 @@ gulp.task('manifest', () =>
 );
 
 gulp.task('js', () =>
-  gulp.src('js/**/*').pipe(gulp.dest('build/js'))
+  gulp.src('js/**/*.js').pipe(gulp.dest('build/js'))
 );
 
 
