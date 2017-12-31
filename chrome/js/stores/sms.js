@@ -1,8 +1,13 @@
 import {ReduceStore} from "flux/utils";
 import {OrderedMap, List} from "immutable";
+import dispatcher from "dispatcher";
 import actions from "actionTypes";
 
 class SMSStore extends ReduceStore {
+  constructor() {
+    super(dispatcher);
+  }
+
   getInitialState() {
     return new OrderedMap();
   }
