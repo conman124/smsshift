@@ -2,6 +2,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  resolve: {
+    modules: [__dirname + "/js", "node_modules"],
+    extensions: [".js", ".json", ".jsx"]
+  },
   entry: {
     background: './js/background.js',
     main: './js/main.js'
