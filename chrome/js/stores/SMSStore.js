@@ -41,4 +41,4 @@ function appendToListAndBump(map, key, el) {
   });
 }
 
-export default SMSStore;
+export default new SMSStore();
