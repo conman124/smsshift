@@ -3,7 +3,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    background: './js/background.js'
+    background: './js/background.js',
+    main: './js/main.js'
   },
   output: {
     path: __dirname + '/build/js',
@@ -37,6 +38,12 @@ module.exports = {
       inject: true,
       chunks: ['background'],
       filename: '../html/background.html'
+    }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      title: "SMSShift",
+      chunks: ['main'],
+      filename: '../html/main.html'
     }),
     new CopyWebpackPlugin([
       {
