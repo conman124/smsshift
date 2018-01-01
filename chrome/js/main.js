@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'views/App';
+import AppContainer from 'AppContainer';
 
 let mainElement = document.createElement('main');
 mainElement.id = "main";
 document.body.appendChild(mainElement)
 
 ReactDOM.render(
-  React.createElement(App, null),
+  React.createElement(AppContainer, null),
   document.getElementById("main")
 );
