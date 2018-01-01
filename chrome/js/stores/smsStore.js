@@ -15,7 +15,7 @@ class SMSStore extends ReduceStore {
 
   reduce(map, action) {
     switch(action.type) {
-      case actions.received:
+      case actions.RECEIVED:
         let record = new SMS(action);
         return appendToListAndBump(map, action);
       default:

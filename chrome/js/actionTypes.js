@@ -1,5 +1,5 @@
 const actionTypes = {
-  received: "received"
+  RECEIVED: "received"
 };
 
 export default actionTypes;
