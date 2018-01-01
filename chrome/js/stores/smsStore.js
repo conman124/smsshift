@@ -32,11 +32,7 @@ class SMSStore extends ReduceStore {
 
 function appendToListAndBump(map, key, el) {
   return map.withMutations((map) => {
-    let list = map.get(key);
-    if(!list) {
-      list = new List();
-    }
-    list.push(el);
+    let list = map.get(key, new List()).push(el);
     return map.remove(key).set(key, list);
   });
 }
