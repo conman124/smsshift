@@ -1,5 +1,6 @@
 const actionTypes = {
-  RECEIVED: "received"
+  RECEIVED: "received",
+  CHANGE_CONVERSATION: "change_conversation"
 };
 
 export default actionTypes;
