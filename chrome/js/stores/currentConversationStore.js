@@ -9,7 +9,7 @@ class CurrentConversationStore extends ReduceStore {
   }
 
   getInitialState() {
-    return smsStore.getState().keySeq().first();
+    return smsStore.getState().keySeq().first() || null;
   }
 
   reduce(currentConversation, action) {
@@ -17,7 +17,7 @@ class CurrentConversationStore extends ReduceStore {
       case actions.CHANGE_CONVERSATION:
         return action.newConversation;
       default:
-        return currentConversation;
+        return currentConversation || null;
     }
   }
 }
