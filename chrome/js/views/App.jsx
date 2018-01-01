@@ -7,7 +7,7 @@ function Person(props) {
       <ul>
         {
           props.messages.map((msg) =>
-            <li key={msg}>{msg}</li>
+            <li key={msg.senderNumber+"_"+msg.timestamp}>{msg.message}</li>
           )
         }
       </ul>

@@ -2,6 +2,7 @@ import {ReduceStore} from "flux/utils";
 import {OrderedMap, List} from "immutable";
 import dispatcher from "dispatcher";
 import actions from "actionTypes";
+import SMS from "records/SMS"
 
 class SMSStore extends ReduceStore {
   constructor() {
@@ -12,12 +13,13 @@ class SMSStore extends ReduceStore {
     return new OrderedMap();
   }
 
-  reduce(state, action) {
+  reduce(map, action) {
     switch(action.type) {
       case actions.received:
-        return appendToListAndBump(state, action.senderNumber, action.message);
+        let record = new SMS(action);
+        return appendToListAndBump(map, action);
       default:
-        return state;
+        return map;
     }
   }
 }
