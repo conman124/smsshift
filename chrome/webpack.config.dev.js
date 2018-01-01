@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   resolve: {
@@ -34,6 +35,16 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json-loader',
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          use: "css-loader"
+        })
+      },
+      {
+        test: /\.woff2?/,
+        loader: 'file-loader'
       }
     ]
   },
@@ -54,6 +65,7 @@ module.exports = {
         from: 'manifest.json',
         to: '../'
       }
-    ])
+    ]),
+    new ExtractTextPlugin("fonts.css")
   ]
 }
