@@ -1,12 +1,25 @@
 import React from "react";
-import ConversationList from "views/ConversationList";
-import Conversation from "views/Conversation";
+import DualPane from "views/DualPane"
+import CSSReset from "material-ui/Reboot";
+import injectSheet from 'react-jss';
 
-export default function App(props) {
-  return (
-    <div>
-      <ConversationList {...props} />
-      <Conversation {...props} />
-    </div>
-  );
+const globalStyles = {
+  '@global': {
+    "html,body,main": {
+      height: "100%"
+    }
+  }
 }
+
+function App(props) {
+  return (
+    <CSSReset>
+      <DualPane
+        left={<div style={{backgroundColor:"yellow",height:"100%"}}>YAY!</div>}
+        right={<div style={{backgroundColor:"orange",height:"100%"}}>AWW YEAH!</div>}
+      />
+    </CSSReset>
+  )
+}
+
+export default injectSheet(globalStyles)(App);
