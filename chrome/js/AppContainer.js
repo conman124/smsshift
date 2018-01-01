@@ -1,14 +1,16 @@
 import App from 'views/App';
 import {Container} from 'flux/utils';
 import smsStore from 'stores/smsStore';
+import currentConversationStore from 'stores/currentConversationStore';
 
 function getStores() {
-  return [ smsStore ];
+  return [ smsStore, currentConversationStore ];
 }
 
 function getState() {
   return {
-    sms: smsStore.getState()
+    sms: smsStore.getState(),
+    currentConversation: currentConversationStore.getState()
   }
 }
 
