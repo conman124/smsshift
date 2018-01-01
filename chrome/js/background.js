@@ -1,12 +1,8 @@
 import {registerGCM, sendTextMessage} from './gcm.js';
 
 chrome.gcm.onMessage.addListener(function(message) {
-  var data = JSON.parse(message.data.event);
-  chrome.runtime.sendMessage({
-    type: "received",
-    senderNumber: data.senderNumber,
-    message: data.message
-  });
+  var event = JSON.parse(message.data.event);
+  chrome.runtime.sendMessage(Object.assign({type: message.data.type}, event));
 });
 
 chrome.app.runtime.onLaunched.addListener(() => {
