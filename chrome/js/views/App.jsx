@@ -1,7 +1,28 @@
 import React from 'react';
 
-export default function App() {
+function Person(props) {
   return (
-    <div>Render this!</div>
+    <li>
+      <em>{props.senderNumber}</em>
+      <ul>
+        {
+          props.messages.map((msg) =>
+            <li key={msg}>{msg}</li>
+          )
+        }
+      </ul>
+    </li>
+  )
+}
+
+export default function App(props) {
+  return (
+    <ul>
+      {
+        props.sms.keySeq().reverse().map((sender) =>
+          <Person key={sender} senderNumber={sender} messages={props.sms.get(sender)} />
+        )
+      }
+    </ul>
   )
 }
