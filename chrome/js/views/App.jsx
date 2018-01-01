@@ -3,6 +3,7 @@ import DualPane from "views/DualPane"
 import CSSReset from "material-ui/Reboot";
 import injectSheet from 'react-jss';
 import proptypes from 'prop-types';
+import AppBarOrchestrator from 'views/AppBarOrchestrator';
 
 const globalStyles = {
   '@global': {
@@ -15,10 +16,12 @@ const globalStyles = {
 function App(props) {
   return (
     <CSSReset>
-      <DualPane
-        left={<div style={{backgroundColor:"yellow",height:"100%"}}>YAY!</div>}
-        right={<div style={{backgroundColor:"orange",height:"100%"}}>AWW YEAH!</div>}
-      />
+      <AppBarOrchestrator>
+        <DualPane
+          left={<div style={{backgroundColor:"yellow",height:"100%"}}>YAY!</div>}
+          right={<div style={{backgroundColor:"orange",height:"100%"}}>AWW YEAH!</div>}
+        />
+      </AppBarOrchestrator>
     </CSSReset>
   )
 }
