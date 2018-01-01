@@ -20,20 +20,12 @@ class SMSStore extends ReduceStore {
         return state;
     }
   }
-
-  getSenders() {
-    return getState().keySeq();
-  }
-
-  getMessagesInvolving(number) {
-    return getState().get(number);
-  }
 }
 
-function appendToListAndBump(map, key, el) {
+function appendToListAndBump(map, action) {
   return map.withMutations((map) => {
-    let list = map.get(key, new List()).push(el);
-    return map.remove(key).set(key, list);
+    let list = map.get(action.senderNumber, new List()).push(action);
+    return map.remove(action.senderNumber).set(action.senderNumber, list);
   });
 }
 
