@@ -1,4 +1,5 @@
 import React from 'react';
+import proptypes from 'prop-types';
 import injectSheet from 'react-jss';
 
 const styles = {
@@ -31,6 +32,10 @@ class DualPane extends React.Component {
       </div>
     )
   }
+}
+
+DualPane.propTypes = {
+  classes: proptypes.object.isRequired
 }
 
 export default injectSheet(styles)(DualPane);

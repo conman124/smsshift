@@ -2,6 +2,7 @@ import React from "react";
 import DualPane from "views/DualPane"
 import CSSReset from "material-ui/Reboot";
 import injectSheet from 'react-jss';
+import proptypes from 'prop-types';
 
 const globalStyles = {
   '@global': {
@@ -20,6 +21,10 @@ function App(props) {
       />
     </CSSReset>
   )
+}
+
+App.propTypes = {
+  classes: proptypes.object.isRequired
 }
 
 export default injectSheet(globalStyles)(App);
