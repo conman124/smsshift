@@ -1,5 +1,5 @@
 let xmpp = require('node-xmpp-client');
-let config = require('../config.json');
+let config = require('../config.js');
 
 module.exports = function(callback) {
   let client = new xmpp.Client({
