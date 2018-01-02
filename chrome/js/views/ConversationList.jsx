@@ -6,7 +6,7 @@ function ConversationList(props) {
     <ul>
       {
         props.sms.keySeq().reverse().map((sender) =>
-          <ConversationPreview key={sender} senderNumber={sender} currentConversation={props.currentConversation} />
+          <ConversationPreview ...props key={sender} senderNumber={sender} />s
         )
       }
     </ul>
