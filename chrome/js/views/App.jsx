@@ -4,6 +4,7 @@ import CSSReset from "material-ui/Reboot";
 import injectSheet from 'react-jss';
 import proptypes from 'prop-types';
 import AppBarOrchestrator from 'views/AppBarOrchestrator';
+import ConversationList from 'views/ConversationList';
 
 const globalStyles = {
   '@global': {
@@ -18,7 +19,7 @@ function App(props) {
     <CSSReset>
       <AppBarOrchestrator>
         <DualPane
-          left={<div style={{backgroundColor:"yellow",height:"100%"}}>YAY!</div>}
+          left={<ConversationList {...props} />}
           right={<div style={{backgroundColor:"orange",height:"100%"}}>AWW YEAH!</div>}
         />
       </AppBarOrchestrator>

@@ -1,15 +1,16 @@
 import React from "react";
 import ConversationPreview from "views/ConversationPreview";
+import List from "material-ui/List"
 
 function ConversationList(props) {
   return (
-    <ul>
+    <List>
       {
         props.sms.keySeq().reverse().map((sender) =>
-          <ConversationPreview ...props key={sender} senderNumber={sender} />s
+          <ConversationPreview {...props} key={sender} senderNumber={sender} />
         )
       }
-    </ul>
+    </List>
   )
 }
 
